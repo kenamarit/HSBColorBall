@@ -22,7 +22,7 @@ public class CubeBehavior : MonoBehaviour
 		Vector3 direction = moveTowardPos - transform.position;
 		direction = direction.normalized;
 		
-		rigidbody.AddForce(direction*600);	
+		rigidbody.AddForce(direction*800);	
 	}
 
 

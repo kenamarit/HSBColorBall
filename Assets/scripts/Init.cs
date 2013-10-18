@@ -28,7 +28,7 @@ public class Init : MonoBehaviour
 		GameObject newCube2 = (GameObject)Instantiate( cube, cubePos, Quaternion.identity );
 		GameObject newCube3 = (GameObject)Instantiate( cube, cubePos, Quaternion.identity );
 		GameObject newCube4 = (GameObject)Instantiate( cube, cubePos, Quaternion.identity );
-		GameObject newCube5 = (GameObject)Instantiate( cube, cubePos, Quaternion.identity );
+		//GameObject newCube5 = (GameObject)Instantiate( cube, cubePos, Quaternion.identity );
 		//GameObject newCube6 = (GameObject)Instantiate( cube, cubePos, Quaternion.identity );
 
 		// Change based on HSB
@@ -38,7 +38,7 @@ public class Init : MonoBehaviour
 		newCube2.renderer.material.color = HSBColor.ToColor( newColor );
 		newCube3.renderer.material.color = HSBColor.ToColor( newColor );
 		newCube4.renderer.material.color = HSBColor.ToColor( newColor );
-		newCube5.renderer.material.color = HSBColor.ToColor( newColor );
+		//newCube5.renderer.material.color = HSBColor.ToColor( newColor );
 		//newCube6.renderer.material.color = HSBColor.ToColor( newColor );
 
 		Debug.Log( newColor );
@@ -59,6 +59,9 @@ public class Init : MonoBehaviour
 			cubeGeneratorDelay++;
 		}
 		
+		// IF you want the cubes to react if you hover over them with the mouse,
+		// uncomment the code below:
+
 		//CheckForCubeAtCurrentMousePos();
 		//prevMousePos = Input.mousePosition;
 	}
@@ -91,19 +94,13 @@ public class Init : MonoBehaviour
 	{
 		if( Input.GetMouseButton(0) )
 		{
-			currentHue += 0.005f;
+			currentHue += 0.003f;
 		}
 
 		if( currentHue >= 1.0f )
 		{
 			currentHue = 0;
 		}
-		/*
-		if( Input.touchCount > 1 && (Input.GetTouch(1).phase == TouchPhase.Moved || Input.GetTouch(1).phase == TouchPhase.Stationary) )
-		{
-			currentHue += 0.005f;
-		}
-		*/
 	}
 
 	void ChangeSB()
@@ -112,18 +109,6 @@ public class Init : MonoBehaviour
 
 		currentSaturation = currentPos.x;
 		currentBrightness = currentPos.y;
-
-		/*
-
-		Vector2 currentTouchPos = Vector2.zero;
-
-		if( Input.touchCount > 0 )
-		{
-			currentTouchPos = Input.GetTouch(0).position;
-		}
-		currentSaturation = currentTouchPos.x;
-		currentBrightness = currentTouchPos.y;
-		*/
 	}
 
 }
